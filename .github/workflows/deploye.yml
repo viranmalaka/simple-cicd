@@ -6,9 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
-      - run: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-      - run: sudo apt install yarn
-      - run: yarn --version
-      - run: yarn
-      - run: yarn build
+      - run: ssh malaka@159.65.159.146
+      - run: touch test.txt
+      - run: exit
