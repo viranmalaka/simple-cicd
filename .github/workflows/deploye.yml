@@ -1,11 +1,18 @@
-name: prod-push
+name: remote ssh command
 on: [push]
 jobs:
-  check-bats-version:
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: ssh malaka@159.65.159.146
-      - run: touch test.txt
-      - run: exit
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_IP }}
+        username: malaka
+        password: ${{ secrets.DIGI_PASS }}
+        port: 22
+        script: |
+          ls
+          touch test.txt
