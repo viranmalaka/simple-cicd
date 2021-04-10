@@ -17,4 +17,4 @@ jobs:
           cd simple-cicd
           git pull
           yarn build
-          pm2 start yarn --name "nextjs" -- start
+          pm2 restart all
