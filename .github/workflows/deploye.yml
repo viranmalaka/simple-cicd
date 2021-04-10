@@ -14,5 +14,7 @@ jobs:
         password: ${{ secrets.DIGI_PASS }}
         port: 22
         script: |
-          ls
-          touch test.txt
+          cd simple-cicd
+          git pull
+          yarn build
+          pm2 start yarn --name "nextjs" -- start
